@@ -28,7 +28,7 @@ public class UsersController {
                        @RequestParam(defaultValue = "3") Integer pageSize) {
         //1.分页查询
         PageHelper.startPage(pageNo, pageSize);
-        List<Users> users = usersMapper.selectAll();
+        List<Users> users = usersMapper.getAllUsers();
         PageInfo<Users> usersPage = new PageInfo<>(users);
         //2.存进model
         model.addAttribute("usersPage", usersPage);

@@ -16,10 +16,10 @@
     <div class="am-offcanvas-bar">
         <div class="am-offcanvas-content">
             <p>
-                <a href="javascript:void(0)" onclick="showUsers()">用户维护</a>
+                <a href="javascript:void(0)" onclick="showModel('/users/show')">用户维护</a>
             </p>
             <p>
-                <a href="">房源维护</a>
+                <a href="javascript:void(0)" onclick="showModel('/house/show')">房源维护</a>
             </p>
 
         </div>
@@ -35,8 +35,8 @@
 <script>
     $('#doc-oc-demo2').offCanvas({effect: 'push'});
 
-    function showUsers(pageNo) {
-        $("#main-content").load("/users/show")
+    function showModel(path) {
+        $("#main-content").load(path)
     }
 </script>
 </html>

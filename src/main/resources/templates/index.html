@@ -6,7 +6,9 @@
     <title>首页</title>
 </head>
 <body>
-<h3><span sec:authentication="name"/>您好！欢迎您！</h3>
+<h3><span sec:authentication="name"/>您好！欢迎您! 您的角色是：
+    <span sec:authentication="principal.authorities">
+</h3>
 <h3 sec:authorize="hasAuthority('房东')">
     <a th:href="@{/admin}">访问后台</a>
 </h3>
