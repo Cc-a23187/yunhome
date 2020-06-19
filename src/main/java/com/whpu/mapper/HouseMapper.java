@@ -1,13 +1,11 @@
 package com.whpu.mapper;
 
+import com.whpu.mapper.provider.HouseProvider;
 import com.whpu.pojo.House;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author cc
@@ -16,7 +14,7 @@ import java.util.List;
 public interface HouseMapper  {
     //全关联查询
     @Select("select h.*,u.*,d.*,t.* from h_house h ,h_district d,h_type t,h_users u where h.user_id=u.uid and h.district_id=d.did and h.type_id=t.typeid")
-    @Results({
+    @Results(id = "houseMap",value ={
             //users表
             @Result(column = "uid",property = "users.uid"),
             @Result(column = "name",property = "users.name"),
@@ -39,4 +37,11 @@ public interface HouseMapper  {
     @Insert("insert into h_house values (null,#{user_id},#{district_id},#{type_id},#{price},#{areas}" +
             ",#{title},#{mark},#{equipment},#{address},#{imgs})")
     void addHouse(House house);
+
+    /*@Delete("delete from h_house where hid = #{hid}")
+    void deleteHouse(House house);*/
+    //条件查询
+    @SelectProvider(type = HouseProvider.class,method = "selectByQuery")
+    @ResultMap("houseMap")//引用上面的 @Results
+    List<House> selectByQuery(Map<String, String> query);
 }

@@ -86,4 +86,10 @@ public class HouseController {
         houseMapper.addHouse(house);
         return "redirect:/admin";
     }
+/*    @RequestMapping("/delete")//实现房源信息的新增
+    public String deleteHouse(House house){
+        System.out.println(house);
+        houseMapper.deleteHouse(house);
+        return "redirect:/admin";
+    }*/
 }
