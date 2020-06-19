@@ -17,6 +17,11 @@ public class House {
     private String equipment;
     private String address;
     private String imgs;
+    //实现新增，原始字段
+    private Integer user_id;
+    private Integer district_id;
+    private Integer type_id;
+
     //2.关联的用户 区域 类型
     private Users users;
     private District district;

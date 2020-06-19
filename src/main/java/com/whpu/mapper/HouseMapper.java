@@ -1,6 +1,7 @@
 package com.whpu.mapper;
 
 import com.whpu.pojo.House;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -34,4 +35,8 @@ public interface HouseMapper  {
             @Result(column = "typedesc",property = "type.typedesc"),
     })
     List<House> getHouse();
+
+    @Insert("insert into h_house values (null,#{user_id},#{district_id},#{type_id},#{price},#{areas}" +
+            ",#{title},#{mark},#{equipment},#{address},#{imgs})")
+    void addHouse(House house);
 }

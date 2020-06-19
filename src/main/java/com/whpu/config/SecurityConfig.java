@@ -25,10 +25,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override//重写认证方法 授权
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+/*
         String p666 = encoder.encode("666");
         String p123 = encoder.encode("123");
         System.out.println(p666);
         System.out.println(p123);
+*/
 
         //连接jdbc认证用户信息
         auth.jdbcAuthentication().passwordEncoder(encoder).
@@ -36,12 +38,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 usersByUsernameQuery("select name ,psw ,1 from h_users where name=?")
                 .authoritiesByUsernameQuery("select name  ,role  from h_users where name=?");
     }
-    @Override //页面访问权限控制
+/*    @Override //页面访问权限控制
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()//对页面请求进行权限管理
-                .antMatchers("/","/index").permitAll()//不拦截 随意访问
-                .antMatchers("/house/**","/users/**","/admin").hasAuthority("房东")
+//                .antMatchers("/","/index").permitAll()//不拦截 随意访问
+                .antMatchers("/house/**","/users/**","/admin","/","/index").hasAuthority("房东")
+                .antMatchers("/","/index").hasAuthority("租客")
                 .anyRequest().authenticated()
                 .and().formLogin();//通过系统自带的登录页面，登录进去后，上面的权限控制就会生效
-    }
+    }*/
 }
