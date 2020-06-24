@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>云+-房屋页</title>
 
-    <link rel="stylesheet" th:href="@{/home/css/hp.css}" />
+    <link rel="stylesheet" th:href="@{/home/css/hp.css}"/>
     <link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}"/>
-    <script  th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
-    <script  th:src="@{/amazeui/assets/js/amazeui.js}"></script>
-    <script  th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
+    <script th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
+    <script th:src="@{/amazeui/assets/js/amazeui.js}"></script>
+    <script th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
 </head>
 <body>
 <div class="hp-container">
@@ -19,29 +19,29 @@
         </a>
         <ul class="am-menu-nav am-avg-sm-3">
             <li class="am-parent">
-                <a th:href="@{/front}" >首页</a>
+                <a th:href="@{/front}">首页</a>
                 <ul class="am-menu-sub am-collapse  am-avg-sm-2 ">
                     <li>
-                        <a th:href="@{/front}" >首页</a>
+                        <a th:href="@{/front}">首页</a>
                     </li>
                 </ul>
             </li>
             <li class="am-parent">
-                <a href="##" >租房</a>
+                <a href="##">租房</a>
                 <ul class="am-menu-sub am-collapse  am-avg-sm-2 ">
                     <li>
-                        <a href="/home/list" >租房</a>
+                        <a href="/home/list">租房</a>
                     </li>
                 </ul>
             </li>
             <li class="am-parent">
-                <a href="##" >个人中心</a>
+                <a href="##">个人中心</a>
                 <ul class="am-menu-sub am-collapse  am-avg-sm-3 ">
                     <li>
-                        <a href="##" >登录</a>
+                        <a href="##">登录</a>
                     </li>
                     <li>
-                        <a href="##" >注册</a>
+                        <a href="##">注册</a>
                     </li>
                 </ul>
             </li>
@@ -56,7 +56,7 @@
                     <li class="li-mark">区域:</li>
                     <li class="li-select"><a href="javascript:;" key='district_id'>不限</a></li>
                     <li th:each="district:${districts}" class="li-item" key='district_id'>
-                        <a th:value="${district.did}"  th:text="${district.disName}"></a>
+                        <a th:value="${district.did}" th:text="${district.disName}"></a>
                     </li>
                 </ul>
             </div>
@@ -83,10 +83,10 @@
                         <a value='1300-1500' href="javascript:;">1300-1500元</a>
                     </li>
                     <li class="li-item" key='price'>
-                        <a value='900-1000' href="javascript:;">1500-2000元</a>
+                        <a value='1500-2000' href="javascript:;">1500-2000元</a>
                     </li>
                     <li class="li-item" key='price'>
-                        <a value='1500-2000' href="javascript:;">2000元以上</a>
+                        <a value='2000-20000' href="javascript:;">2000元以上</a>
                     </li>
                 </ul>
             </div>
@@ -116,7 +116,7 @@
                         <a value='110-130' href="javascript:;">110-130平</a>
                     </li>
                     <li class="li-item" key='area'>
-                        <a value='130-1000' href="javascript:;">130平以上</a>
+                        <a value='130-10000' href="javascript:;">130平以上</a>
                     </li>
                 </ul>
             </div>
@@ -128,7 +128,7 @@
                     <li class="li-mark">房型:</li>
                     <li class="li-select"><a href="javascript:;" key='type_id'>不限</a></li>
                     <li class="li-item" key='type_id' th:each="type:${types}">
-                        <a   href="javascript:;" th:value="${type.typeid}" th:text="${type.typedesc}">一室</a>
+                        <a href="javascript:;" th:value="${type.typeid}" th:text="${type.typedesc}">一室</a>
                     </li>
                 </ul>
             </div>
@@ -166,7 +166,6 @@
         </ul>
     </div>
 </div>
-
 
 
 </body>

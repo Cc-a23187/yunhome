@@ -20,9 +20,10 @@ public class IndexController {
         //跳转admin.html
         return "/admin/admin";
     }
+
     //访问前台首页
     @RequestMapping("/front")
-    public String front(){
+    public String front() {
         //跳转index.html
         return "front/home_index";
     }

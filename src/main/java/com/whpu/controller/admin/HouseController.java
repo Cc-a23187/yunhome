@@ -42,9 +42,9 @@ public class HouseController {
 
     @RequestMapping("/show")
     public String show(Model model,
-                       @RequestParam(defaultValue = "1")Integer pageNo,
-                       @RequestParam(defaultValue = "3")Integer pageSize){
-        PageHelper.startPage(pageNo,pageSize);
+                       @RequestParam(defaultValue = "1") Integer pageNo,
+                       @RequestParam(defaultValue = "3") Integer pageSize) {
+        PageHelper.startPage(pageNo, pageSize);
 
         List<House> houses = houseMapper.getHouse();
 
@@ -52,13 +52,13 @@ public class HouseController {
         //3.封装pageInfo
         PageInfo<House> houseInfo = (PageInfo<House>) new PageInfo<>(houses);
         //4.存model
-        model.addAttribute("houseInfo",houseInfo);
+        model.addAttribute("houseInfo", houseInfo);
         //5.跳转showHouse.html
         return "admin/house/show_house";
     }
 
     @RequestMapping("addPage")
-    public String addHousePage(Model model){
+    public String addHousePage(Model model) {
         //查询出所有的用户信息
         List<Users> users = usersMapper.getAllUsers();
         //2.查询出所有的类型信息
@@ -66,22 +66,23 @@ public class HouseController {
         //3.查询出所有的区域信息:城区 (和 街道)
         List<District> districts = districtMapper.selectDisArea(1);
         //4.上述集合存入model
-        model.addAttribute("users",users);
-        model.addAttribute("types",types);
-        model.addAttribute("districts",districts);
+        model.addAttribute("users", users);
+        model.addAttribute("types", types);
+        model.addAttribute("districts", districts);
         System.out.println(districts);
         //5.跳转到新增页面
         return "admin/house/add_house";
     }
+
     @RequestMapping("/getStreetsById")
     @ResponseBody//城区和街道二级联动
-    public  List<District> streets(Integer id){
+    public List<District> streets(Integer id) {
         return districtMapper.selectDisArea(id);
     }
 
 
     @RequestMapping("/add")//实现房源信息的新增
-    public String addHouse(House house){
+    public String addHouse(House house) {
         System.out.println(house);
         houseMapper.addHouse(house);
         return "redirect:/admin";
