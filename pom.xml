@@ -105,6 +105,18 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--反爬虫插件-->
+        <dependency>
+            <groupId>cn.keking.project</groupId>
+            <artifactId>kk-anti-reptile</artifactId>
+            <version>1.0.0-RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.5.4</version>
+        </dependency>
     </dependencies>
 
     <build>

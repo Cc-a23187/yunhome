@@ -19,7 +19,7 @@ public class HouseProvider {
 
             //动态拼接条件--区域
             if(!StringUtils.isNullOrEmpty(query.get("district_id"))){
-                WHERE("d.parentId=#{district_id} ");
+                WHERE("d.parentId=#{district_id} "); //父id=城区id
             }
             //动态拼接条件--房型
             if(!StringUtils.isNullOrEmpty(query.get("type_id"))){

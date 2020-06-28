@@ -1,5 +1,6 @@
 package com.whpu.controller.front;
 
+import cn.keking.anti_reptile.annotation.AntiReptile;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.whpu.mapper.DistrictMapper;
@@ -34,6 +35,7 @@ public class HomeController {
     private TypeMapper typeMapper;
 
     //进入home_list页面
+    @AntiReptile
     @RequestMapping("/list")
     public String list(Model model){
         //1.查询城区
