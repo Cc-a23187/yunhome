@@ -12,7 +12,6 @@
 <span><a th:href="@{/admin}">返回</a></span>
 
 
-
 <h1 style="text-align: center">房源信息表</h1>
 <!--相关属性见 http://amazeui.shopxo.net/css/grid/ -->
 <div class="am-g">
@@ -31,10 +30,10 @@
                 <th>配备</th>
                 <th>地址</th>
                 <th>图片</th>
-                <th>操作|<a th:href="@{/house/addPage}">新增房源</a> </th>
+                <th>操作|<a th:href="@{/house/addPage}">新增房源</a></th>
             </tr>
             <tr th:each="house:${houseInfo.list}">
-                <td  id="hid" th:text="${house.hid}"></td>
+                <td id="hid" th:text="${house.hid}"></td>
                 <td th:text="${house.users.name}"></td>
                 <td th:text="${house.district.disName}"></td>
                 <td th:text="${house.type.typedesc}"></td>
@@ -45,7 +44,7 @@
                 <td th:text="${house.equipment}"></td>
                 <td class="am-text-break" th:text="${house.address}"></td>
                 <td><img th:src="${house.imgs}" th:width="150px" th:height="125px"></td>
-                <td><a href="">修改</a>|<a href="" id="deleteHouse">删除</a> </td>
+                <td><a href="">修改</a>|<a href="" id="deleteHouse">删除</a></td>
             </tr>
         </table>
     </div>
@@ -56,7 +55,7 @@
 <div class="am-container">
     <div class="am-u-sm-4 am-u-sm-centered">
         <ul class="am-pagination ">
-        </ul >
+        </ul>
     </div>
 </div>
 
@@ -79,16 +78,16 @@
         }
     });
     //td中文本垂直居中
-    $("table tr td").attr("class","am-text-middle")
+    $("table tr td").attr("class", "am-text-middle")
 
-/*    //租房删除
-    $("#deleteHouse").click(function () {
-        var id=$("#houseId");
-        console.log(id);
-        $.get("/house/deleteHouse",{"id":id},function (deleteHouse) {
-            alert("删除成功！")
-        });
+    /*    //租房删除
+        $("#deleteHouse").click(function () {
+            var id=$("#houseId");
+            console.log(id);
+            $.get("/house/deleteHouse",{"id":id},function (deleteHouse) {
+                alert("删除成功！")
+            });
 
-    })*/
+        })*/
 </script>
 </html>

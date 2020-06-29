@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!--引入amazeui-->
-    <link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}" />
+    <link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}"/>
     <script th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
     <script th:src="@{/amazeui/assets/js/amazeui.js}"></script>
     <script th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
@@ -27,7 +27,7 @@
     <div class="am-form-group">
         <label for="doc-select-1" class="am-u-sm-2 am-form-label">城区</label>
         <div class="am-u-sm-4">
-            <select id="doc-select-2" >
+            <select id="doc-select-2">
                 <option th:value="${dis.did}" th:text="${dis.disName}" th:each="dis:${districts}"></option>
             </select>
             <span class="am-form-caret"></span>
@@ -35,7 +35,7 @@
         <label for="doc-select-1" class="am-u-sm-1 am-form-label">街道</label>
         <div class="am-u-sm-5">
             <select id="doc-select-3" th:name="district_id">
-                <option  th:text="街道" th:value="13"></option>
+                <option th:text="街道" th:value="13"></option>
             </select>
             <span class="am-form-caret"></span>
         </div>
@@ -103,12 +103,12 @@
     //城区和街道的二级联动
     $("#doc-select-2").change(function () {
         //城区的id
-        var id=$(this).val();
+        var id = $(this).val();
         //发送异步请求，查询对应的街道信息
-        $.get("/house/getStreetsById",{"id":id},function (streets) {
+        $.get("/house/getStreetsById", {"id": id}, function (streets) {
             $("#doc-select-3").html("");//先清空，再填充
-            $.each(streets,function (index,street) {
-                var option='<option value="'+street.did+'">'+street.disName+'</option>';
+            $.each(streets, function (index, street) {
+                var option = '<option value="' + street.did + '">' + street.disName + '</option>';
                 $("#doc-select-3").append(option);
             })
         });

@@ -14,9 +14,9 @@
     <name>yunhome</name>
     <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
 
     <dependencies>
         <!-- thymeleaf结合security实现页面控制的启动器  -->
