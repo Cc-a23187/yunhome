@@ -1,5 +1,6 @@
 package com.whpu.controller.admin;
 
+import cn.keking.anti_reptile.annotation.AntiReptile;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.whpu.mapper.DistrictMapper;
@@ -40,6 +41,7 @@ public class HouseController {
     @Autowired
     DistrictMapper districtMapper;
 
+    @AntiReptile
     @RequestMapping("/show")
     public String show(Model model,
                        @RequestParam(defaultValue = "1") Integer pageNo,

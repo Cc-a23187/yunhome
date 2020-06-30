@@ -1,5 +1,6 @@
 package com.whpu.controller.admin;
 
+import cn.keking.anti_reptile.annotation.AntiReptile;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.whpu.mapper.UsersMapper;
@@ -22,6 +23,7 @@ public class UsersController {
     @Autowired
     private UsersMapper usersMapper;
 
+    @AntiReptile
     @RequestMapping("/show")
     public String show(Model model,
                        @RequestParam(defaultValue = "1") Integer pageNo,

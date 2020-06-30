@@ -67,6 +67,8 @@
         nextText: '下一页', // next 按钮的文本内容
         callback: function (current) { // 每一个页数按钮的回调事件
             console.log(current)
+            // $.ajax({url:"/users/show?pageNo=" + current,
+            //         httpRequestStatusCode:403});
             location.href = "/users/show?pageNo=" + current;
         }
     });
