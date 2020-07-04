@@ -22,6 +22,9 @@
                 <a href="javascript:void(0)" onclick="showModel('/house/show')">房源维护</a>
             </p>
             <p>
+                <a href="javascript:void(0)" id="showHouse">房源维护2</a>
+            </p>
+            <p>
                 <a href="/index">主界面</a>
             </p>
 
@@ -41,5 +44,24 @@
     function showModel(path) {
         $("#main-content").load(path)
     }
+    $(document).ready(function() {
+
+        //添加用户信息,点击事件
+        $('#showHouse').click(function () {
+
+            $.ajax({
+                type: "get",
+                url: "/house/show",
+                contentType : "application/json",
+                success: function (data) {
+                    $("#main-content").html(data);
+                    console.log(data)
+                },
+                error: function (e) {
+                    console.log(e)
+                }
+            })
+        })
+    })
 </script>
 </html>

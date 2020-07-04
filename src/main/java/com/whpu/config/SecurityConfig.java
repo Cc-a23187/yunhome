@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 usersByUsernameQuery("select name ,psw ,1 from h_users where name=?")
                 .authoritiesByUsernameQuery("select name  ,role  from h_users where name=?");
     }
-/*    @Override //页面访问权限控制
+    @Override //页面访问权限控制
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()//对页面请求进行权限管理
                 .antMatchers("/").permitAll()//不拦截 随意访问
@@ -46,5 +46,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/","/index","front").hasAuthority("租客")
                 .anyRequest().authenticated()
                 .and().formLogin();//通过系统自带的登录页面，登录进去后，上面的权限控制就会生效
-    }*/
+    }
 }

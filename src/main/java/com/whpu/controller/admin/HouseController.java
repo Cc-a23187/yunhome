@@ -1,6 +1,8 @@
 package com.whpu.controller.admin;
 
 import cn.keking.anti_reptile.annotation.AntiReptile;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.whpu.mapper.DistrictMapper;
@@ -15,10 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -42,7 +47,8 @@ public class HouseController {
     DistrictMapper districtMapper;
 
     @AntiReptile
-    @RequestMapping("/show")
+    @RequestMapping(value = "/show")
+//            (value = "/show", method = RequestMethod.POST)
     public String show(Model model,
                        @RequestParam(defaultValue = "1") Integer pageNo,
                        @RequestParam(defaultValue = "3") Integer pageSize) {
@@ -57,7 +63,9 @@ public class HouseController {
         model.addAttribute("houseInfo", houseInfo);
         //5.跳转showHouse.html
         return "admin/house/show_house";
+
     }
+
 
     @RequestMapping("addPage")
     public String addHousePage(Model model) {
